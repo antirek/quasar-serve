@@ -9,7 +9,7 @@ const quasarServe = (options) => {
   const router = express.Router();
 
   router.get('/', (req, res) => {
-    const file = fs.readFileSync(path.join(__dirname, distPath, 'index.html'));
+    const file = fs.readFileSync(path.join(distPath, 'index.html'));
     let ready;
     if (replaces && replaces.baseUrl) {
       ready = file.toString().replace(new RegExp('{{baseUrl}}', 'g'), replaces.baseUrl);
@@ -18,27 +18,27 @@ const quasarServe = (options) => {
   })
 
   router.get('/js/:filename', (req, res) => {
-    res.sendFile(path.join(__dirname, distPath, '/js/', req.params.filename));
+    res.sendFile(path.join(distPath, '/js/', req.params.filename));
   })
 
   router.get('/css/:filename', (req, res) => {
-    res.sendFile(path.join(__dirname, distPath, '/css/', req.params.filename));
+    res.sendFile(path.join(distPath, '/css/', req.params.filename));
   })
 
   router.get('/fonts/:filename', (req, res) => {
-    res.sendFile(path.join(__dirname, distPath, '/fonts/', req.params.filename));
+    res.sendFile(path.join(distPath, '/fonts/', req.params.filename));
   });
 
   router.get('/img/:filename', (req, res) => {
-    res.sendFile(path.join(__dirname, distPath, '/img/', req.params.filename));
+    res.sendFile(path.join(distPath, '/img/', req.params.filename));
   });
 
   router.get('/icons/:filename', (req, res) => {
-    res.sendFile(path.join(__dirname, distPath, '/icons/', req.params.filename));
+    res.sendFile(path.join(distPath, '/icons/', req.params.filename));
   });
 
   router.get('/favicon.ico', (req, res) => {
-    res.sendFile(path.join(__dirname, distPath, '/favicon.ico'));
+    res.sendFile(path.join(distPath, '/favicon.ico'));
   });
 
   return router;
