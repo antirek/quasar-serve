@@ -15,15 +15,15 @@ const quasarServe = (options) => {
       ready = file.toString().replace(new RegExp('{{baseUrl}}', 'g'), replaces.baseUrl);
     }
     res.send(ready);
-  })
+  });
 
   router.get('/js/:filename', (req, res) => {
     res.sendFile(path.join(distPath, '/js/', req.params.filename));
-  })
+  });
 
   router.get('/css/:filename', (req, res) => {
     res.sendFile(path.join(distPath, '/css/', req.params.filename));
-  })
+  });
 
   router.get('/fonts/:filename', (req, res) => {
     res.sendFile(path.join(distPath, '/fonts/', req.params.filename));
